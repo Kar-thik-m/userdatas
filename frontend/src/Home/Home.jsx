@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../ContextApi/AuthContext';
 import HomeStyle from "../Home/Home.module.css";
+import { Url } from '../../config';
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
     useEffect(() => {
         const fetchUsersData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/user/usersdata', {
+                const response = await fetch(`${Url}/user/usersdata`, {
                     method: 'GET',
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
